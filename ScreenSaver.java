@@ -59,8 +59,6 @@ class GfxApp extends JFrame
 		int incY = 5;	// initial y increment for circle locations
 		
 		Circle c = new Circle(g,circleSize,incX,incY,TIME_DELAY);
-		Circle d = new Circle(g,circleSize,0,0,TIME_DELAY);
-		int countD = 0;
 		Queue<Coord> queue = new LinkedList<Coord>();
 		try
 		{
@@ -75,16 +73,6 @@ class GfxApp extends JFrame
 				{
 					i--;
 					c.eraseDraw(queue.remove());
-				}
-				if(c.hitEdge())
-				{
-					d.setTL(c.getTLX(),c.getTLY());
-					d.drawCircle();
-				}
-				if(countD<5)
-				{
-					d.setSize(d.getSize()+3);
-					d.drawCircle();
 				}
 			}
 				
@@ -108,8 +96,8 @@ class Circle
 	private boolean addY;	// flag to determine add/subtract of increment for Y
 	private int size;		// diameter of the circle
 	private int timeDelay;	// time delay until next circle is drawn
-    private Graphics g;
-    private Color col;
+    	private Graphics g;
+    	private Color col;
     /**
      * Creates a Circle with a specified Graphics, size, x increment, y increment and time delay
      */ 
